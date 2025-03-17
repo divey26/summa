@@ -14,7 +14,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link as RouterLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import emailjs from "emailjs-com";
-import backgroundImage from "./logo.png";
+import backgroundImage from "./logo.jpg";
 export default function Login() {
   const styles = {
     paper: {
@@ -37,7 +37,6 @@ export default function Login() {
       justifyContent: "center",
     },
     container: {
-      backgroundImage: `url(${backgroundImage})`, // Add background image
       backgroundSize: "450px",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -111,9 +110,9 @@ export default function Login() {
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>
-          <Avatar style={styles.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+        <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <img src={backgroundImage} alt="Logo" style={{ width: "30%" }} />
+        </div>
           <Typography component="h1" variant="h5" style={styles.title}>
             Forgot Password
           </Typography>

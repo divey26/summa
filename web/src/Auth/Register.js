@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { Link as RouterLink } from "react-router-dom";
-import backgroundImage from "./logo.png";
+import backgroundImage from "./logo.jpg";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,6 @@ export default function Register() {
       justifyContent: "center",
     },
     container: {
-      backgroundImage: `url(${backgroundImage})`, // Add background image
       backgroundSize: "450px",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -149,9 +148,9 @@ export default function Register() {
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>
-          <Avatar style={styles.avatar}>
-            <PersonAddIcon />
-          </Avatar>
+        <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <img src={backgroundImage} alt="Logo" style={{ width: "30%" }} />
+        </div>
           <Typography component="h1" variant="h5" style={styles.title}>
             Register
           </Typography>

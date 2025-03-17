@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import backgroundImage from "./logo.png";
+import backgroundImage from "./logo.jpg";
 const styles = {
   paper: {
     marginTop: "10px",
@@ -33,7 +33,6 @@ const styles = {
     justifyContent: "center",
   },
   container: {
-    backgroundImage: `url(${backgroundImage})`, // Add background image
       backgroundSize: "450px",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -85,9 +84,9 @@ export default function ResetPassword() {
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>
-          <Avatar style={styles.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+        <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <img src={backgroundImage} alt="Logo" style={{ width: "30%" }} />
+        </div>
           <Typography component="h1" variant="h5">
             Reset Password
           </Typography>

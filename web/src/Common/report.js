@@ -1,10 +1,10 @@
-import imageSrc from "./logo.png";
+import imageSrc from "./logo.jpg";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 export const exportToPDF = (columns, data, options = {}) => {
   const doc = new jsPDF();
-  const { title } = options;
+  const { title, titleXPosition, titleYPosition } = options; // Add customizable title position
   const logo = new Image();
   logo.src = imageSrc;
   logo.onload = () => {
@@ -12,14 +12,17 @@ export const exportToPDF = (columns, data, options = {}) => {
     const pageWidth = doc.internal.pageSize.getWidth();
     const xPosition = (pageWidth - logoWidth) / 2;
     doc.addImage(logo, "PNG", xPosition, 5, logoWidth, 40);
+
     doc.setFont("helvetica", "bold");
-    doc.setFontSize(24);
-    const textWidth =
-      (doc.getStringUnitWidth(title) * doc.internal.getFontSize()) /
-      doc.internal.scaleFactor;
-    const textXPosition = (pageWidth - textWidth) / 2;
+    doc.setFontSize(20);
+    
+    // If titleXPosition and titleYPosition are provided in options, use them
+    const titlePosX = titleXPosition || (pageWidth - (doc.getStringUnitWidth(title) * doc.internal.getFontSize()) / doc.internal.scaleFactor) / 2;
+    const titlePosY = titleYPosition || 52; // Default Y position if not provided
+    
     doc.setTextColor(0, 0, 0);
-    doc.text(title, textXPosition, 45);
+    doc.text(title, titlePosX, titlePosY); // Use dynamic position for title
+
     generateTable(doc, columns, data);
     savePDF(doc);
   };

@@ -13,7 +13,7 @@ import {
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { Link as RouterLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import backgroundImage from "./logo.png";
+import backgroundImage from "./logo.jpg";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +41,6 @@ const Login = () => {
     },
     container: {
       // Add a semi-transparent white background to the container
-      backgroundImage: `url(${backgroundImage})`, // Add background image
       backgroundSize: "450px",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -134,9 +133,10 @@ const Login = () => {
       <Container component="main" maxWidth="xs" style={styles.container}>
         <CssBaseline />
         <div style={styles.paper}>
-          <Avatar style={styles.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+
+        <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <img src={backgroundImage} alt="Logo" style={{ width: "30%" }} />
+        </div>
           <Typography component="h1" variant="h5" style={styles.title}>
             Sign in
           </Typography>

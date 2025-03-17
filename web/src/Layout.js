@@ -32,7 +32,7 @@ import {
 import { Layout, Menu, theme, Button } from "antd";
 import { FloatButton } from "antd";
 import { useNavigate } from "react-router-dom";
-import imageSrc from "./logo.png";
+import imageSrc from "./logo.jpg";
 
 const { Header, Content, Footer, Sider } = Layout;
 const loggedInUserType = localStorage.getItem("loggedInUserType");
@@ -427,23 +427,25 @@ const App = ({ children, userType }) => {
       }}
     >
       <Sider
-        collapsible
-        collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
         width={250}
+        style={{
+          position: "sticky",
+          backgroundColor:"#D5C7A3"
+        }}
       >
-        <div className="demo-logo-vertical">
-          <img src={imageSrc} alt="Description of your image" />
+        <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <img src={imageSrc} alt="Logo" style={{ width: "80%" }} />
         </div>
         <Menu
-          theme="dark"
-          defaultSelectedKeys={["dashboard"]}
+        theme="light"
           mode="inline"
           items={userType === "admin" ? adminUserItems : employeeUserItems}
           onClick={handleMenuClick}
           style={{
             position: "sticky",
             marginTop: "10px",
+            backgroundColor:"#F2E2B1"
           }}
         />
       </Sider>
@@ -457,6 +459,7 @@ const App = ({ children, userType }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            backgroundColor:"#5c1612",
           }}
         >
           <div className="demo-logo" />
